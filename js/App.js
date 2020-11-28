@@ -1,4 +1,30 @@
-//Defines card animation
+//Gets all movies from Ghibli API
+
+const renderMovies = () => {
+  let content = document.querySelector(".content");
+
+  fetch("https://ghibliapi.herokuapp.com/films")
+    .then((movies) => {
+      return movies.json();
+    })
+    .then((movies) => {
+      movies.forEach((movie) => {
+        content.innerHTML +=
+          "<div class='card'> <img src='img/spiritedAway.jpg' alt='Spirited Away poster'/> <div class='cardinfo'> <h2>" +
+          movie.title +
+          "</h2> <p>" +
+          movie.description +
+          "</p> <a href='https://www.wikipedia.org/wiki/" +
+          movie.title.split(" ").join("_") +
+          "'>More Info</a> </div> </div>";
+      });
+    })
+    .then(() => {
+      cardAnimation();
+    });
+};
+
+//Defines card animations
 
 const cardAnimation = () => {
   const cards = document.querySelectorAll(".card");
@@ -22,4 +48,4 @@ const cardAnimation = () => {
   });
 };
 
-cardAnimation();
+renderMovies();
