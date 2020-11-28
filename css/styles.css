@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    transition: 0.45s ease-in;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+header .logo{
+    margin-top: 2%;
+    width: 20%;
+    position: relative;
+    right: 2.5%;
+}
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+.card{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    align-items: center;
+    margin-top: 4%;
+    width: 250px;
+    border-radius: 16px;
+
+    max-height: 370px;
+}
+
+.card img{
+    width: 250px;
+    cursor: pointer;
+}
+
+.cardinfo{
+    display: none;
+    opacity: 0;
+
+    padding: 3% 6%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.cardinfo p{
+    text-align: center;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.cardinfo h2{
+    font-size: 20px;
+    text-align: center;
+}
+
+.card button{
+    background-color: black;
+    color: white;
+    width: 55%;
+    height: 10%;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    border-radius: 8px;
+}
+
+.show{
+    display: flex;
+}
+
+.expand{
+    width: 520px;
+}
