@@ -9,18 +9,34 @@ const renderMovies = () => {
     })
     .then((movies) => {
       movies.forEach((movie) => {
-        content.innerHTML +=
-          "<div class='card'> <img src='img/spiritedAway.jpg' alt='Spirited Away poster'/> <div class='cardinfo'> <h2>" +
-          movie.title +
-          "</h2> <p>" +
-          movie.description +
-          "</p> <a href='https://www.wikipedia.org/wiki/" +
-          movie.title.split(" ").join("_") +
-          "'>More Info</a> </div> </div>";
+        let posterURL = "";
+
+        fetch(
+          "http://www.omdbapi.com/?apikey=267a90c3&t=" +
+            movie.title.split(" ").join("+")
+        )
+          .then((data) => {
+            return data.json();
+          })
+          .then((data) => {
+            posterURL = data.Poster;
+          })
+          .then(() => {
+            content.innerHTML +=
+              "<div class='card'> <img src='" +
+              posterURL +
+              "' alt='movie poster'/> <div class='cardinfo'> <h2>" +
+              movie.title +
+              "</h2> <p>" +
+              movie.description +
+              "</p> <a href='https://www.wikipedia.org/wiki/" +
+              movie.title.split(" ").join("_").split("'").join("%27") +
+              "'>More Info</a> </div> </div>";
+          })
+          .then(() => {
+            cardAnimation();
+          });
       });
-    })
-    .then(() => {
-      cardAnimation();
     });
 };
 

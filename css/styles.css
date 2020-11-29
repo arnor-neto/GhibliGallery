@@ -12,6 +12,7 @@ body {
   align-items: center;
 
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -50,6 +51,7 @@ header .logo {
 
 .card img {
   width: 250px;
+  height: 100%;
   cursor: pointer;
 }
 
