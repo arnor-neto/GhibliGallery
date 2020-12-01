@@ -64,4 +64,27 @@ const cardAnimation = () => {
   });
 };
 
+// Defines modal popup listeners
+
+const modalListeners = () => {
+  let aboutbtn = document.querySelector(".about-btn");
+  let modal = document.querySelector(".modal");
+  let closebtn = document.querySelector(".close");
+
+  aboutbtn.addEventListener("click", () => {
+    modal.style.display = "flex"; 
+    setTimeout(() => {
+      modal.style.opacity = 1;
+    }, 100);
+  });
+
+  closebtn.addEventListener("click", () => {
+    modal.style.opacity = 0;
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 500); 
+  });
+};
+
 renderMovies();
+modalListeners();

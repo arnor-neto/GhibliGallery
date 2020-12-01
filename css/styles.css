@@ -89,13 +89,19 @@ header .logo {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   width: 50%;
   height: 10%;
   font-weight: bold;
   font-size: 16px;
   border-radius: 8px;
+  border: solid 2px black;
+}
+
+.card a:hover{
+  background-color: black;
+  color: white
 }
 
 .show {
@@ -104,6 +110,120 @@ header .logo {
 
 .expand {
   width: 520px;
+}
+
+.about-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(256, 256, 256, 0.4);
+  color: rgba(156, 156, 156, 0.4);
+  cursor: pointer;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.about-btn:hover{
+  background-color: rgba(256, 256, 256, 1);
+  color: rgba(156, 156, 156, 1);
+}
+
+.modal{
+  position: fixed;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fefefe;
+  width: 27%;
+  height: 79vh;
+  border-radius: 36px;
+  padding: 12px;
+}
+
+.modal-content img{
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+}
+
+#author{
+  font-size: 26px;
+}
+
+.modal-content p{
+  width: 75%;
+  text-align: justify;
+}
+
+.modal .row{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 4px;
+}
+
+.modal .icon-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+#icon1{
+  margin-right: 8%;
+}
+
+.line{
+  width: 75%;
+  height: 1px;
+  background-color: gray;
+  border-radius: 16px;
+}
+
+.icon-row a{
+  width: 35px;
+  height: 35px;
+}
+
+.icon-row img{
+  width: 35px;
+  height: 35px;
+}
+
+.modal .close{
+  font-size: 40px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  height: 30px;
+  color: rgb(70, 70, 70);
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
 }
 
 /* width */
