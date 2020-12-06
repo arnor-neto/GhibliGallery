@@ -12,7 +12,7 @@ const renderMovies = () => {
         let posterURL = "";
 
         fetch(
-          "http://www.omdbapi.com/?apikey=267a90c3&t=" +
+          "https://www.omdbapi.com/?apikey=267a90c3&t=" +
             movie.title.split(" ").join("+")
         )
           .then((data) => {
