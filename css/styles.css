@@ -3,7 +3,7 @@
   border: 0;
   box-sizing: border-box;
   font-family: "Nunito Sans", sans-serif;
-  transition: 0.45s ease-in;
+  transition: 0.5s ease-in-out;
 }
 
 body {
@@ -46,13 +46,17 @@ header .logo {
   width: 250px;
   border-radius: 16px;
 
-  max-height: 370px;
+  height: 370px;
+  transform-style: preserve-3d;
 }
 
 .card img {
   width: 250px;
   height: 100%;
   cursor: pointer;
+  object-fit: cover;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .cardinfo {
@@ -99,9 +103,9 @@ header .logo {
   border: solid 2px black;
 }
 
-.card a:hover{
+.card a:hover {
   background-color: black;
-  color: white
+  color: white;
 }
 
 .show {
@@ -112,7 +116,7 @@ header .logo {
   width: 520px;
 }
 
-.about-btn{
+.about-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,15 +131,15 @@ header .logo {
   border-radius: 50%;
   font-weight: bold;
   font-size: 30px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.about-btn:hover{
+.about-btn:hover {
   background-color: rgba(256, 256, 256, 1);
   color: rgba(156, 156, 156, 1);
 }
 
-.modal{
+.modal {
   position: fixed;
   display: none;
   opacity: 0;
@@ -146,11 +150,11 @@ header .logo {
   width: 100%;
   height: 100vh;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
-.modal-content{
+.modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,57 +166,57 @@ header .logo {
   padding: 12px;
 }
 
-.modal-content img{
+.modal-content img {
   border-radius: 50%;
   width: 175px;
   height: 175px;
 }
 
-#author{
+#author {
   font-size: 26px;
 }
 
-.modal-content p{
+.modal-content p {
   width: 75%;
   text-align: justify;
 }
 
-.modal .row{
+.modal .row {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   height: 4px;
 }
 
-.modal .icon-row{
+.modal .icon-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
 }
 
-#icon1{
+#icon1 {
   margin-right: 8%;
 }
 
-.line{
+.line {
   width: 75%;
   height: 1px;
   background-color: gray;
   border-radius: 16px;
 }
 
-.icon-row a{
+.icon-row a {
   width: 35px;
   height: 35px;
 }
 
-.icon-row img{
+.icon-row img {
   width: 35px;
   height: 35px;
 }
 
-.modal .close{
+.modal .close {
   font-size: 40px;
   margin-right: 20px;
   margin-bottom: 0;
@@ -224,6 +228,21 @@ header .logo {
 .close:focus {
   color: black;
   cursor: pointer;
+}
+
+.closerow {
+  display: none;
+  justify-content: flex-end;
+  width: 100%;
+  
+  position: absolute;
+  top:0;
+}
+
+.card .close {
+  font-size: 28px;
+  margin-right: 10px;
+  color: rgb(70, 70, 70);
 }
 
 /* width */
@@ -240,4 +259,47 @@ header .logo {
 ::-webkit-scrollbar-thumb {
   background: rgb(156, 156, 156);
   border-radius: 36px;
+}
+
+@media (max-width: 1024px) {
+  header .logo {
+    width: 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  header .logo {
+    width: 50%;
+  }
+
+  .expand {
+    width: 250px;
+    transform: rotateY(180deg);
+  }
+
+  .cardinfo {
+    display: flex;
+    opacity: 1;
+    transform: rotateY(180deg);
+  }
+
+  .show {
+    transform: rotateY(180deg);
+  }
+
+  .mobileRotate {
+    transform: rotateY(180deg);
+  }
+  .mobileHide {
+    display: none;
+  }
+
+  .closerow{
+    display: flex;
+  }
+
+  .modal-content{
+    width: 80%;
+    height: 85vh;  
+  }
 }

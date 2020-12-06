@@ -22,16 +22,19 @@ const renderMovies = () => {
             posterURL = data.Poster;
           })
           .then(() => {
-            content.innerHTML +=
-              "<div class='card'> <img src='" +
-              posterURL +
-              "' alt='movie poster'/> <div class='cardinfo'> <h2>" +
-              movie.title +
-              "</h2> <p>" +
-              movie.description +
-              "</p> <a href='https://www.wikipedia.org/wiki/" +
-              movie.title.split(" ").join("_").split("'").join("%27") +
-              "'>More Info</a> </div> </div>";
+            content.innerHTML += `<div class='card'> <img src='${posterURL}' alt='movie poster'/> <div class='cardinfo'>
+            <div class="closerow">
+            <span class="close">&times;</span>
+            </div>
+            <h2>
+              ${movie.title}</h2> <p>
+              ${
+                movie.description
+              }</p> <a href='https://www.wikipedia.org/wiki/${movie.title
+              .split(" ")
+              .join("_")
+              .split("'")
+              .join("%27")}'>More Info</a> </div> </div>`;
           })
           .then(() => {
             cardAnimation();
@@ -46,6 +49,7 @@ const cardAnimation = () => {
   const cards = document.querySelectorAll(".card");
   const imgs = document.querySelectorAll(".card img");
   const cardinfos = document.querySelectorAll(".cardinfo");
+  const closebtns = document.querySelectorAll(".card .close");
 
   imgs.forEach((img, index) => {
     img.addEventListener("click", () => {
@@ -59,7 +63,26 @@ const cardAnimation = () => {
         setTimeout(() => {
           cardinfos[index].style.opacity = "1";
         }, 350);
+
+        //Mobile classes
+        img.classList.add("mobileRotate");
+        setTimeout(() => {
+          img.classList.add("mobileHide");
+        }, 400);
       }
+    });
+  });
+
+  closebtns.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      cards[index].classList.toggle("expand");
+
+      cardinfos[index].classList.remove("show");
+      cardinfos[index].style.opacity = "0";
+      imgs[index].classList.remove("mobileHide");
+      setTimeout(() => {
+        imgs[index].classList.remove("mobileRotate");
+      }, 0);
     });
   });
 };
@@ -72,7 +95,7 @@ const modalListeners = () => {
   let closebtn = document.querySelector(".close");
 
   aboutbtn.addEventListener("click", () => {
-    modal.style.display = "flex"; 
+    modal.style.display = "flex";
     setTimeout(() => {
       modal.style.opacity = 1;
     }, 100);
@@ -82,7 +105,7 @@ const modalListeners = () => {
     modal.style.opacity = 0;
     setTimeout(() => {
       modal.style.display = "none";
-    }, 500); 
+    }, 500);
   });
 };
 
